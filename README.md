@@ -1,7 +1,7 @@
 # رحّال (Rahhal) — Merged Project
 
-Frontend (رحال — polished Arabic React UI, built by your teammate) + backend (Gemini-powered
-trip planning engine) merged into one project.
+Frontend (رحال — polished Arabic React UI, built by Majid) + backend (Gemini-powered
+trip planning engine, built by Mohammed) merged into one project.
 
 ## How it fits together
 
@@ -26,13 +26,9 @@ mock plans. To add real generation for another city, add its sites to
 ## Known gaps from this merge pass
 
 - **Missing image**: `destinations.ts` references `riyadh.jpg` as Riyadh's hero image, but
-  that file isn't in the original upload — Riyadh's card will show a broken image until
-  someone adds `frontend/public/riyadh.jpg`.
+  that file isn't in the original upload — Riyadh's card will show a broken image.
 - **No map view**: the old vanilla-JS prototype had a Leaflet route map; `TimelineItem` in
-  this app's types don't currently carry lat/lon, so there's no map here yet. Worth adding
-  later if wanted.
-- **"Regenerate with different constraints" button**: also not ported over — this UI doesn't
-  have an equivalent yet, though `TripSetupScreen` retains its values on `onBack`.
+  this app's types don't currently carry lat/lon, so there's no map here yet.
 - **Alternative plan flow**: `AlternativePlanModal` is untouched and still uses whatever mock
   alternative data ships with each plan; it isn't wired to a real "conditions changed"
   detection yet.
@@ -54,7 +50,7 @@ npm install
 npm run dev               # http://localhost:5173 — proxies /api to :3001 automatically
 ```
 
-## Production build (single process, same as before)
+## Production build
 
 ```bash
 cd frontend && npm run build   # outputs frontend/dist
