@@ -1,0 +1,85 @@
+{
+  "city": "Al-Balad, Jeddah",
+  "sites": [
+    {
+      "id": "naseef_house",
+      "name": "Naseef House",
+      "name_ar": "بيت نصيف",
+      "lat": 21.4831,
+      "lon": 39.1836,
+      "category": "heritage",
+      "avg_visit_minutes": 45,
+      "indoor": true,
+      "accessibility": {
+        "wheelchair_accessible": false,
+        "notes": "Multiple floors, no elevator. Ground floor partially accessible.",
+        "walk_from_nearest_parking_m": 150
+      },
+      "best_time": "morning"
+    },
+    {
+      "id": "souq_alalawi",
+      "name": "Souq Al-Alawi",
+      "name_ar": "سوق العلوي",
+      "lat": 21.4855,
+      "lon": 39.1859,
+      "category": "market",
+      "avg_visit_minutes": 60,
+      "indoor": false,
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "notes": "Flat walkable market street, can be crowded midday.",
+        "walk_from_nearest_parking_m": 200
+      },
+      "best_time": "evening"
+    },
+    {
+      "id": "bab_makkah",
+      "name": "Bab Makkah",
+      "name_ar": "باب مكة",
+      "lat": 21.4809,
+      "lon": 39.1861,
+      "category": "landmark",
+      "avg_visit_minutes": 20,
+      "indoor": false,
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "notes": "Open gate area, flat ground.",
+        "walk_from_nearest_parking_m": 100
+      },
+      "best_time": "any"
+    },
+    {
+      "id": "matbouli_house",
+      "name": "Matbouli House Museum",
+      "name_ar": "بيت مطبولي",
+      "lat": 21.4838,
+      "lon": 39.1842,
+      "category": "museum",
+      "avg_visit_minutes": 40,
+      "indoor": true,
+      "accessibility": {
+        "wheelchair_accessible": false,
+        "notes": "Traditional multi-floor house, stairs only.",
+        "walk_from_nearest_parking_m": 180
+      },
+      "best_time": "morning"
+    },
+    {
+      "id": "al_shafi_mosque",
+      "name": "Al-Shafi Mosque",
+      "name_ar": "مسجد الشافعي",
+      "lat": 21.4820,
+      "lon": 39.1848,
+      "category": "religious",
+      "avg_visit_minutes": 30,
+      "indoor": true,
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "notes": "Ground level access, ramp available.",
+        "walk_from_nearest_parking_m": 120
+      },
+      "best_time": "any"
+    }
+  ]
+}
