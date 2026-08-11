@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-app: #FAFAFA;
+    --bg-surface: #FFFFFF;
+    --bg-surface-subtle: #F9FAFB;
+    --border-color: #F3F4F6;
+    --border-color-strong: #E5E7EB;
+    --text-primary: #09090B;
+    --text-secondary: #4B5563;
+    --text-muted: #6B7280;
+  }
+
+  .dark {
+    --bg-app: #111111;
+    --bg-surface: #1B1B1B;
+    --bg-surface-subtle: #222222;
+    --border-color: #2A2A2A;
+    --border-color-strong: #333333;
+    --text-primary: #F9FAFB;
+    --text-secondary: #9CA3AF;
+    --text-muted: #6B7280;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6, button, input, select, textarea {
+    font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom scrollbar styling for a clean editorial look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E5E7EB;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D1D5DB;
+}
+
+/* Print styling for itinerary export */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+

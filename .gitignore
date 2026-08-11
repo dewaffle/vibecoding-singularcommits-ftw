@@ -1,7 +1,10 @@
 # Dependencies
 node_modules/
 
-# Environment variables
+# Build output
+frontend/dist/
+
+# Environment variables (real API keys live here — never commit this)
 .env
 
 # Editor/IDE
@@ -12,6 +15,3 @@ node_modules/
 # OS
 .DS_Store
 Thumbs.db
-
-# Logs
-npm-debug.log*

@@ -1,73 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Planner — AI Tourism Daily Planner</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
-  />
-</head>
-<body>
-  <header>
-    <h1>The Planner</h1>
-    <p class="subtitle">AI-powered daily tourism planner — Al-Balad, Jeddah</p>
-  </header>
-
-  <main>
-    <section id="form-section" class="card">
-      <h2>Plan your day</h2>
-      <form id="plan-form">
-        <label>
-          Date
-          <input type="date" id="date" required />
-        </label>
-
-        <label>
-          Trip duration (hours)
-          <input type="number" id="duration" min="1" max="12" value="6" required />
-        </label>
-
-        <fieldset id="sites-fieldset">
-          <legend>Choose sites to visit</legend>
-          <div id="sites-list">Loading sites...</div>
-        </fieldset>
-
-        <label>
-          Special needs (optional)
-          <input type="text" id="needs" placeholder="e.g. wheelchair access, avoid outdoor midday" />
-        </label>
-
-        <button type="submit" id="submit-btn">Generate Itinerary</button>
-      </form>
-    </section>
-
-    <section id="result-section" class="card hidden">
-      <h2>Your Itinerary</h2>
-      <div id="meta-info"></div>
-      <div id="map"></div>
-      <div id="itinerary-list"></div>
-      <button type="button" id="regenerate-btn" class="secondary-btn">🔄 Regenerate with different constraints</button>
-    </section>
-
-    <section id="loading-section" class="card hidden">
-      <p>Building your plan — checking prayer times, weather, and travel between stops...</p>
-    </section>
-
-    <section id="error-section" class="card hidden error">
-      <p id="error-text"></p>
-    </section>
-  </main>
-
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
-  <script src="js/app.js"></script>
-</body>
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>رحّال - المخطط الذكي للرحلات والزيارات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#FAFAFA] dark:bg-[#111111] text-gray-900 dark:text-gray-100 antialiased selection:bg-emerald-100 selection:text-emerald-900">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
+

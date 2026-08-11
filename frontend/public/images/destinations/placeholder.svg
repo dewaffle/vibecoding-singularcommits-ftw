@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <rect width="1200" height="800" fill="#18181B"/>
+  <rect width="1200" height="800" fill="url(#grid)" opacity="0.15"/>
+  <circle cx="600" cy="350" r="220" fill="url(#radial_glow)"/>
+  
+  <!-- Subtle Saudi Star Pattern Motif -->
+  <g opacity="0.1" stroke="#10B981" stroke-width="2" fill="none">
+    <path d="M600 150 L650 300 L800 350 L650 400 L600 550 L550 400 L400 350 L550 300 Z"/>
+    <circle cx="600" cy="350" r="120"/>
+  </g>
+  
+  <!-- Compass Outline Icon -->
+  <g transform="translate(540, 290)" stroke="#10B981" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="60" cy="60" r="50"/>
+    <polygon points="76,44 52,60 44,76 68,60" fill="#10B981"/>
+  </g>
+
+  <!-- Neutral Label -->
+  <text x="600" y="480" text-anchor="middle" fill="#E4E4E7" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700">صورة الوجهة غير متوفرة</text>
+  <text x="600" y="520" text-anchor="middle" fill="#A1A1AA" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="500">رحّال • المساعد الذكي لتخطيط الرحلات</text>
+
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.3"/>
+    </pattern>
+    <radialGradient id="radial_glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 350) rotate(90) scale(220)">
+      <stop stop-color="#059669" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#18181B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
