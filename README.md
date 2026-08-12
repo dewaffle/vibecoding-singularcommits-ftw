@@ -3,6 +3,9 @@
 Frontend (رحال — polished Arabic React UI, built by Majid) + backend (Gemini-powered
 trip planning engine, built by Mohammed) merged into one project.
 
+Some features are still missing from the original prototype, but the core trip planning
+experience is now fully functional and demoable in Arabic.
+
 ## How it fits together
 
 - `frontend/` — React + TypeScript + Vite + Tailwind v4. All UI, fully Arabic/RTL.
@@ -19,9 +22,7 @@ stays demoable even before the backend has real data for it.
 
 **Only Jeddah (Al-Balad) is backed by real AI generation right now.** The other 6 destinations
 (Riyadh, AlUla, Diriyah, Abha, NEOM, Madinah) automatically fall back to the existing rich
-mock plans. To add real generation for another city, add its sites to
-`backend/data/sites.json` (same shape as the Jeddah entries) and register it in
-`SUPPORTED_DESTINATIONS` in `backend/server.js`.
+mock plans.
 
 ## Known gaps from this merge pass
 
@@ -33,7 +34,7 @@ mock plans. To add real generation for another city, add its sites to
   alternative data ships with each plan; it isn't wired to a real "conditions changed"
   detection yet.
 
-## Running locally
+## How to run locally using PowerShell
 
 Two terminals:
 
@@ -44,7 +45,7 @@ npm install
 cp .env.example .env    # then fill in GEMINI_API_KEY (and GOOGLE_MAPS_API_KEY if you have one)
 npm start                # http://localhost:3001
 
-# Terminal 2 — frontend (dev mode, hot reload)
+# Terminal 2 — frontend
 cd frontend
 npm install
 npm run dev               # http://localhost:5173 — proxies /api to :3001 automatically

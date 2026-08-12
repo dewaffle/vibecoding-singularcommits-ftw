@@ -49,17 +49,36 @@ function formatDateForAladhan(isoDate) {
 
 // ---------- 2. Weather ----------
 async function getWeather({ lat = 21.4858, lon = 39.1925, date }) {
+  const targetDate = date || new Date().toISOString().split('T')[0];
+
   if (!FORCE_MOCK) {
     try {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min&timezone=Asia/Riyadh`;
+      // Open-Meteo's forecast array always starts at "today" (index 0) and
+      // only extends as far as forecast_days asks — it does NOT automatically
+      // scope to a requested date. We have to explicitly request enough days
+      // ahead to cover targetDate, then find that date's actual index.
+      const today = new Date();
+      const target = new Date(targetDate + 'T00:00:00');
+      const daysAhead = Math.round((target - today) / (1000 * 60 * 60 * 24));
+
+      // Open-Meteo's free forecast endpoint only covers up to 16 days out.
+      if (daysAhead < 0 || daysAhead > 15) {
+        throw new Error(`Date ${targetDate} is outside the 16-day forecast window`);
+      }
+
+      const forecastDays = Math.min(16, daysAhead + 1);
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min&timezone=Asia/Riyadh&forecast_days=${forecastDays}`;
       const res = await fetch(url, { timeout: 5000 });
       const data = await res.json();
-      if (data.daily) {
+
+      if (data.daily && data.daily.time) {
+        const idx = data.daily.time.indexOf(targetDate);
+        if (idx === -1) throw new Error(`${targetDate} not found in forecast response`);
         return {
           source: 'live',
-          date: data.daily.time[0],
-          temp_max_c: data.daily.temperature_2m_max[0],
-          temp_min_c: data.daily.temperature_2m_min[0],
+          date: data.daily.time[idx],
+          temp_max_c: data.daily.temperature_2m_max[idx],
+          temp_min_c: data.daily.temperature_2m_min[idx],
           peak_heat_hours: '12:00-16:00'
         };
       }
@@ -71,7 +90,7 @@ async function getWeather({ lat = 21.4858, lon = 39.1925, date }) {
   // Mock fallback — realistic Jeddah summer temps
   return {
     source: 'mock',
-    date: date || new Date().toISOString().split('T')[0],
+    date: targetDate,
     temp_max_c: 41,
     temp_min_c: 31,
     peak_heat_hours: '12:00-16:00'
